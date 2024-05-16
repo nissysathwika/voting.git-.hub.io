@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Voting System - Voting</title>
+    <style>
+        /* Styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3; /* Background color */
+            background-image: url('https://cdn.vectorstock.com/i/preview-1x/64/31/simple-classy-background-vector-1816431.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            
+        }
+
+        h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #F5F5DC; /* Change the color to blue */
+    font-family: 'Arial Black', sans-serif; /* Change the font family */
+    font-size: 28px; /* Adjust the font size */
+    font-weight: bold; /* Make the font bold */
+}
+
+        .candidates {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .candidate {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .candidate img {
+            display: block;
+            margin: 0 auto 10px; /* Center the image */
+            max-width: 100px;
+            border-radius: 50%;
+        }
+
+        .candidate-symbol {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Remove the bullets from the voting options */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        input[type="radio"]::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #007bff;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        input[type="radio"]:checked::before {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vote for Your Preferred Candidate</h2>
+        
+        <div class="candidates" id="candidatesList">
+            <!-- Candidates will be dynamically generated here -->
+        </div>
+
+        <form id="votingForm">
+            <!-- Voting options will be dynamically generated here -->
+            <input type="submit" value="Vote">
+        </form>
+    </div>
+
+    <script>
+        // Dummy data for candidates (replace with actual data)
+        var candidatesData = [
+            { id: 1, name: "Symbol 1", image: "candidate1.jpg" },
+            { id: 2, name: "Symbol 2", image: "candidate2.jpg" },
+            { id: 3, name: "Symbol 3", image: "candidate3.jpg" },
+            { id: 4, name: "Symbol 4", image: "candidate4.jpg" },
+            { id: 5, name: "Symbol 5", image: "candidate5.jpg" }
+            // Add more candidates as needed
+        ];
+
+        // Function to generate candidate HTML
+        function generateCandidateHTML(candidate) {
+            return `
+                <div class="candidate">
+                    <img src="${candidate.image}" alt="${candidate.name}">
+                    <div class="candidate-symbol">${candidate.name}</div>
+                    <label>
+                        <input type="radio" name="candidate" value="${candidate.id}">
+                    </label>
+                </div>
+            `;
+        }
+
+        // Function to generate voting options
+        function generateVotingOptions() {
+            var optionsHTML = "";
+            candidatesData.forEach(function(candidate) {
+                optionsHTML += `<input type="radio" name="candidate" value="${candidate.id}"><br>`;
+            });
+            return optionsHTML;
+        }
+
+        // Populate candidates list
+        var candidatesList = document.getElementById("candidatesList");
+        candidatesData.forEach(function(candidate) {
+            candidatesList.innerHTML += generateCandidateHTML(candidate);
+        });
+
+        // Update voting form with dynamic voting options
+        var votingForm = document.getElementById("votingForm");
+        votingForm.innerHTML += generateVotingOptions();
+
+        // Submit voting form
+        votingForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var selectedCandidateId = document.querySelector('input[name="candidate"]:checked').value;
+            var selectedCandidate = candidatesData.find(candidate => candidate.id == selectedCandidateId);
+            updateDashboard(selectedCandidate);
+        });
+
+        // Function to update the dashboard (replace with actual function)
+        function updateDashboard(candidate) {
+            // Dummy function for demonstration
+            alert("You voted for " + candidate.name);
+        }
+    </script>
+</body>
+</html>

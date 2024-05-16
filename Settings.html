@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System Settings</title>
+    <style>
+        /* Styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoT0r9Ck43eNwCKEWSd4P9O8lslFVjzwQkD1qByFWcL9vo2IWh8iPDyZMwryWSfOzlywY&usqp=CAU'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color for better contrast */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .setting {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .setting label {
+            font-weight: bold;
+        }
+
+        .setting input[type="text"],
+        .setting input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .setting input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        .setting input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .setting input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Voting System Settings</h2>
+        
+        <!-- Setting 1: Number of Candidates -->
+        <div class="setting">
+            <label for="numCandidates">Number of Candidates:</label>
+            <input type="number" id="numCandidates" name="numCandidates" min="1" max="10">
+        </div>
+
+        <!-- Setting 2: Voting Period -->
+        <div class="setting">
+            <label for="votingPeriod">Voting Period (in days):</label>
+            <input type="number" id="votingPeriod" name="votingPeriod" min="1" max="30">
+        </div>
+
+        <!-- Setting 3: Enable/Disable Proxy Voting -->
+        <div class="setting">
+            <label for="proxyVoting">Enable Proxy Voting:</label>
+            <input type="checkbox" id="proxyVoting" name="proxyVoting">
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Save Settings" onclick="saveSettings()">
+        
+    </div>
+
+    <script>
+        function saveSettings() {
+            // Save the settings here
+            // For demonstration, let's assume the settings are saved successfully
+            
+            // Refresh the page after saving the settings
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

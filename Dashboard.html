@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Voting System - Dashboard</title>
+    <style>
+        /* Styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+	    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220427/pngtree-online-elections-banner-electronic-voting-image_1091547.jpg');
+	    background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            width:100%;
+	    max-width:none;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stats-item {
+            flex: 1;
+            text-align: left;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 5px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Voting System - Dashboard</h1>
+        </header>
+        
+        <main>
+            <section>
+                <h2>Voter Statistics</h2>
+                <div class="stats">
+                    <div class="stats-item">
+                        <h3>Total Voters</h3>
+                        <p id="totalVoters">5000</p>
+                    </div>
+                    </div>
+            </section>
+
+            <section>
+                <h2>Feedback</h2>
+                <p>Please provide your feedback about the voting process:</p>
+                <textarea id="feedback" rows="4" cols="50"></textarea>
+                <button onclick="submitFeedback()">Submit Feedback</button>
+            </section>
+
+            <section>
+                <h2>Voters' Progress</h2>
+                <p>Track the progress of voters:</p>
+                <progress id="votersProgress" max="100" value="60"></progress>
+                <p>60% of voters have cast their votes.</p>
+            </section>
+            
+            <section>
+                <h2>Voting</h2>
+                <p><a href="voting.html" target="voting">Go to Voting Page</a></p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Digital Voting System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            var feedbackText = document.getElementById("feedback").value;
+            // Send feedback to server or perform other actions as needed
+            alert("Feedback submitted successfully!");
+        }
+    </script>
+</body>
+</html>

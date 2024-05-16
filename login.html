@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Voting System - Home</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+	    background-image: url('https://caltechsites-prod.s3.amazonaws.com/scienceexchange/images/Caltech-Voting-Phone-Online-S.2e16d0ba.fill-933x525-c100.jpg ');
+	    background-size: cover;
+            background-position : center;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Frame styles */
+        .frame {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-frame {
+            background-color: #444;
+            color: #fff;
+            width: 200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-frame ul {
+            list-style-type: none;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .left-frame ul li {
+            margin-bottom: 10px;
+        }
+
+        .left-frame ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .center-frame {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .center-frame h2 {
+            margin-top: 0;
+        }
+
+        .right-frame {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-frame ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .right-frame ul li {
+            margin-bottom: 10px;
+        }
+
+        .right-frame ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Login page styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://t3.ftcdn.net/jpg/03/89/61/88/360_F_389618887_PImTbyGB4vTQOoGKxjhOKp2w7hZmcNAs.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+	    max-width: 80%;
+	    margin-left: 100px;
+	    margin-right:auto;
+	    text-align: center; /* Set your desired width */
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+	    display: block;
+	    text-align: left;
+        }
+
+        .login-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login page -->
+    <div class="container login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <!-- Container for main content -->
+    <div class="container" id="mainContent" style="display: none;">
+        <!-- Header -->
+        <header>
+            <h1>Digital Voting System</h1>
+            <nav>
+                <ul>
+                    <!-- Right frame links -->
+                    <li><a href="Settings.html" target="_blank">Settings</a></li>
+                    <li><a href="#" id="logout">Logout</a></li> <!-- Logout link -->
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Frames -->
+        <div class="frame">
+            <!-- Left frame -->
+            <div class="left-frame">
+                <ul>
+                    <!-- Left frame links -->
+                    <li><a href="Dashboard.html" target="_blank">Dashboard</a></li>
+                    <li><a href="Voters.html" target="_blank">Voters</a></li>
+                    <li><a href="Voting.html" target="_blank">Voting</a></li>
+                    <li><a href="Candidates.html" target="_blank">Candidates</a></li>
+                    <li><a href="Results.html" target="_blank">Results</a></li>
+                </ul>
+            </div>
+
+            <!-- Center frame -->
+            <div class="center-frame">
+                <h2>Welcome to the Digital Voting System!</h2>
+            </div>
+
+            <!-- Right frame -->
+            <div class="right-frame">
+                <!-- Placeholder for right frame content -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Submit login form
+        var loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            // Get username and password values
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            // Perform login logic here (e.g., validate credentials)
+            // For demonstration purposes, simply show the main content after successful login
+            showContent();
+        });
+
+        // Function to show the main content after successful login
+        function showContent() {
+            var loginContainer = document.querySelector(".login-container");
+            var mainContent = document.getElementById("mainContent");
+            loginContainer.style.display = "none"; // Hide the login container
+            mainContent.style.display = "flex"; // Show the main content container
+        }
+
+        // Logout functionality
+        var logoutLink = document.getElementById("logout");
+        logoutLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            // Redirect to the home page (replace "home.html" with the actual home page URL)
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
